@@ -37,3 +37,4 @@ end
 
 cipher=VigenereCipher.new
 puts cipher.encode("CODEWARS","PASSWORD")
+puts cipher.decode("ROVWSOIV","PASSWORD")

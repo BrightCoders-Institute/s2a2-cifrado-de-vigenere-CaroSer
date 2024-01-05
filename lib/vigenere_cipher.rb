@@ -15,7 +15,10 @@ class VigenereCipher
   end
 
   def decode(message,key)
-
+    parsed_message= message.upcase.split('').map {|letter| @vigenere_table[0].fetch(letter)}
+    parsed_key=key.upcase.split('').map {|letter| @vigenere_table[0].fetch(letter)}
+    paired=parsed_message.zip(parsed_key).map {|pair|( pair[0]-pair[1])%26}
+    paired.map {|number| @vigenere_table[0].invert.fetch(number)}.join
   end
   
   private
